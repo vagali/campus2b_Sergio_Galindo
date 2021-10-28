@@ -83,7 +83,7 @@ public class Refresco {
 		return false;
 	}
 	public String getEstadoActual() {
-		return "Numero del producto disponibles :"+numProductosDispos;
+		return "Nombre del producto: "+marca+", Numero del producto disponibles :"+numProductosDispos;
 	}
 	public boolean reponer(int numRefresco) {
 		if(numRefresco <= 0) {
