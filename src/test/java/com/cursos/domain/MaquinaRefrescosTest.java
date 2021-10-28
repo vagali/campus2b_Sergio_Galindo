@@ -27,7 +27,7 @@ public class MaquinaRefrescosTest {
 		if (!maquina.comprar(15, refrescos[1]))
 			fail("Lo sentimos, no hay stock disponible.");
 		
-		System.out.println("borrarrr");
+	
 	}
 
 	@Test
