@@ -12,7 +12,7 @@ public class MaquinaRefrescosTest {
 		Refresco[] refrescos = { new Refresco("Fanta", 1.56f, true, 0, 10, false),
 				new Refresco("Cola", 1.80f, true, 0, 10, false), new Refresco("Pepsi", 1.96f, true, 0, 10, false) };
 		MaquinaRefrescos maquina = new MaquinaRefrescos(refrescos, 100f, true);
-
+		
 		if (!maquina.comprar(10, refrescos[0])) {
 			fail("no se ha podido comprar");
 		}
