@@ -6,7 +6,7 @@ public class Maquina {
 	private boolean estadoCambioDisponible;
 	
 	public Maquina() {
-		super();
+		super(); // this(new Refresco(),4,true); ----------------->llamar a otro constructor;
 		refresco = new Refresco();
 		cambio = 100;
 		estadoCambioDisponible = false;
