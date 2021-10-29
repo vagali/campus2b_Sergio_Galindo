@@ -1,5 +1,9 @@
 package com.cursos.domain;
-
+/**
+ * Maquina con un solo Refresco.
+ * @author Sergio Galindo
+ *
+ */
 public class Maquina {
 	private Refresco refresco;
 	private float cambio;

@@ -1,5 +1,11 @@
 package com.cursos.domain;
 
+/**
+ * Maquina con mas de un refresco (Array)
+ * 
+ * @author Sergio galindo
+ *
+ */
 public class MaquinaRefrescos {
 	private Refresco[] refrescos;
 	private float cambio;
@@ -94,15 +100,14 @@ public class MaquinaRefrescos {
 	}
 
 	public String[] getEstadoActual() {
-		String estado = "------------------------------\n"
-				+ "Cambio disponible: " + cambio;
+		String estado = "------------------------------\n" + "Cambio disponible: " + cambio;
 		String[] refrescosEstado = new String[refrescos.length + 1];
-		
+
 		for (int i = 0; i < refrescos.length; i++) {
 			refrescosEstado[i] = refrescos[i].getEstadoActual();
 		}
 		refrescosEstado[3] = estado;
-		
+
 		return refrescosEstado;
 	}
 
