@@ -21,11 +21,11 @@ public class MaquinaRefrescosTest {
 	@Test
 	public void testComprarNoHayStock() {
 
-		Refresco[] refrescos = { new Refresco("Fanta", 1.56f, true, 0, 10, false),
-				new Refresco("Cola", 1.80f, true, 0, 0, true), new Refresco("Pepsi", 1.96f, true, 0, 10, false) };
+		Refresco[] refrescos = { new Refresco("Fanta", 1.56f, false, 0, 0, true),
+				new Refresco("Cola", 1.80f, false, 0, 0, true), new Refresco("Pepsi", 1.96f, true, 0, 10, false) };
 		MaquinaRefrescos maquina = new MaquinaRefrescos(refrescos, 100f, true);
-		if (!maquina.comprar(15, refrescos[1]))
-			fail("Lo sentimos, no hay stock disponible.");
+		if (maquina.comprar(15, refrescos[1]))
+			fail("No Deberia de haber stock");
 		
 	
 	}
@@ -37,8 +37,8 @@ public class MaquinaRefrescosTest {
 				new Refresco("Cola", 1.80f, true, 0, 0, true), new Refresco("Pepsi", 1.96f, true, 0, 10, false) };
 		MaquinaRefrescos maquina = new MaquinaRefrescos(refrescos, 0, false);
 
-		if (!maquina.comprar(15, refrescos[0]))
-			fail("Lo sentimos, no hay cambio disponible.");
+		if (maquina.comprar(15, refrescos[0]))
+			fail("No se deberia de poder comprar si no hay cambio");
 	}
 
 	@Test
@@ -48,8 +48,8 @@ public class MaquinaRefrescosTest {
 				new Refresco("Cola", 1.80f, true, 0, 0, true), new Refresco("Pepsi", 1.96f, true, 0, 10, false) };
 		MaquinaRefrescos maquina = new MaquinaRefrescos(refrescos, 250, false);
 
-		if (!maquina.comprar(0.1f, refrescos[2]))
-			fail("Vaya no se ha podido efectuar la compra.");
+		if (maquina.comprar(0.1f, refrescos[2]))
+			fail("No se puede comprar sin efectivo suficiente");
 	}
 
 	@Test
@@ -67,10 +67,10 @@ public class MaquinaRefrescosTest {
 	public void testRetirarCambioDeLaMaquinaError() {
 		Refresco[] refrescos = { new Refresco("Fanta", 1.56f, true, 0, 10, false),
 				new Refresco("Cola", 1.80f, true, 0, 0, true), new Refresco("Pepsi", 1.96f, true, 0, 10, false) };
-		MaquinaRefrescos maquina = new MaquinaRefrescos(refrescos, 250, false);
+		MaquinaRefrescos maquina = new MaquinaRefrescos(refrescos, 100, false);
 
-		if (!maquina.retirarCambio(160)) {
-			fail("Vaya. no se ha podido retirar cambio.");
+		if (maquina.retirarCambio(550)) {
+			fail("No se deberia poder retirar cambio");
 		}
 	}
 

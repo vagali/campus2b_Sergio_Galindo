@@ -66,15 +66,20 @@ public class MaquinaRefrescos {
 		} else {
 			if (estadoCambioDisponible) {
 				if (efectivo > refresco.getPrecio()) {
-					refresco.setNumVendidos(refresco.getNumVendidos() + 1);
-					cambio -= refresco.getPrecio();
-					refresco.setNumProductosDispos(refresco.getNumProductosDispos() - 1);
-					if (refresco.getNumProductosDispos() == 0) {
-						refresco.setEstadoDisponible(false);
-					}
-					System.out.println(this.getCambioDevuelto(efectivo, refresco));
-					System.out.println(refresco);
-					correcto = true;
+
+					if (retirarCambio(efectivo)) {
+						refresco.setNumVendidos(refresco.getNumVendidos() + 1);
+						cambio -= refresco.getPrecio();
+						refresco.setNumProductosDispos(refresco.getNumProductosDispos() - 1);
+						if (refresco.getNumProductosDispos() == 0) {
+							refresco.setEstadoDisponible(false);
+						}
+						System.out.println(this.getCambioDevuelto(efectivo, refresco));
+						System.out.println(refresco);
+						correcto = true;
+					} else
+						return false;
+
 				} else {
 					System.out.println("Efectivo no suficiente");
 					correcto = false;
@@ -89,13 +94,12 @@ public class MaquinaRefrescos {
 
 	public boolean retirarCambio(float cambio) {
 		if (cambio > this.cambio) {
+			System.out.println("no se ha podido efectuar la compra, cambio insuficiente en la maquina.");
 			return false;
 		} else {
-			if (this.cambio - cambio >= 100) {
-				this.cambio -= cambio;
-				return true;
-			} else
-				return false;
+			this.cambio -= cambio;
+			System.out.println("hay cambio suficiente para la compra");
+			return true;
 		}
 	}
 
