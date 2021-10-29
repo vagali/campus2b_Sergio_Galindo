@@ -7,6 +7,7 @@ public class Maquina {
 	
 	public Maquina() {
 		super(); // this(new Refresco(),4,true); ----------------->llamar a otro constructor;
+		System.out.println();
 		refresco = new Refresco();
 		cambio = 100;
 		estadoCambioDisponible = false;
